@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P2E Radar — Play-to-Earn Game Aggregator | Web2 & Web3</title>
+  <meta name="description" content="Discover the best Play-to-Earn games from social media. Curated P2E games with 75-100% earning potential across Web2 and Web3 platforms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">◈</div>
+      <div class="loading-bar"><div class="loading-progress" id="loading-progress"></div></div>
+      <p class="loading-text">Scanning social feeds...</p>
+    </div>
+  </div>
+
+  <!-- Animated Background -->
+  <canvas id="particles-canvas" class="particles-canvas"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="#" class="logo" id="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">P2E<span class="logo-accent">Radar</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#games" class="nav-link" id="nav-games">Games</a>
+        <a href="#trending" class="nav-link" id="nav-trending">Trending</a>
+        <a href="#about" class="nav-link" id="nav-about">About</a>
+      </div>
+      <div class="nav-stats">
+        <div class="live-indicator" id="live-indicator">
+          <span class="live-dot"></span>
+          <span>Live Feed</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-pulse"></span>
+        Aggregating from X · Reddit · Discord · Telegram
+      </div>
+      <h1 id="hero-title">Discover <span class="gradient-text">Play-to-Earn</span> Games<br />with Real Earning Potential</h1>
+      <p class="hero-subtitle" id="hero-subtitle">We scan social media platforms to surface the best P2E games with <strong>75%–100% verified earning chance</strong> across Web2 & Web3. Every game is scored, summarized, and ready for you.</p>
+      <div class="hero-metrics" id="hero-metrics">
+        <div class="metric">
+          <span class="metric-value" id="metric-games">0</span>
+          <span class="metric-label">Games Tracked</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-value" id="metric-platforms">6</span>
+          <span class="metric-label">Platforms</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-value" id="metric-avg">0%</span>
+          <span class="metric-label">Avg Earn Rate</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#games" class="btn btn-primary" id="btn-explore">Explore Games</a>
+        <a href="#about" class="btn btn-ghost" id="btn-learn">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="hero-visual">
+      <div class="orbit-ring orbit-ring-1"></div>
+      <div class="orbit-ring orbit-ring-2"></div>
+      <div class="orbit-ring orbit-ring-3"></div>
+      <div class="orbit-center">
+        <span>P2E</span>
+      </div>
+      <div class="orbit-node orbit-node-1"><span>🎮</span></div>
+      <div class="orbit-node orbit-node-2"><span>💰</span></div>
+      <div class="orbit-node orbit-node-3"><span>🌐</span></div>
+      <div class="orbit-node orbit-node-4"><span>📱</span></div>
+    </div>
+  </header>
+
+  <!-- Filter Bar -->
+  <section id="games" class="section">
+    <div class="section-header">
+      <h2 class="section-title" id="section-title-games">
+        <span class="gradient-text">Curated</span> P2E Games
+      </h2>
+      <p class="section-subtitle">Sourced from social media — filtered for 75%+ earning potential</p>
+    </div>
+
+    <div class="filter-bar" id="filter-bar">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search games, tokens, platforms..." autocomplete="off" />
+      </div>
+      <div class="filter-chips" id="filter-chips">
+        <button class="chip active" data-filter="all" id="chip-all">All Games</button>
+        <button class="chip" data-filter="web3" id="chip-web3">Web3</button>
+        <button class="chip" data-filter="web2" id="chip-web2">Web2</button>
+        <button class="chip" data-filter="browser" id="chip-browser">Browser</button>
+        <button class="chip" data-filter="android" id="chip-android">Android</button>
+      </div>
+      <div class="sort-wrapper">
+        <label for="sort-select">Sort by</label>
+        <select id="sort-select" class="sort-select">
+          <option value="earn-desc">Earn Rate ↓</option>
+          <option value="earn-asc">Earn Rate ↑</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="recent">Recently Added</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Game Grid -->
+    <div class="game-grid" id="game-grid">
+      <!-- Cards injected via JS -->
+    </div>
+
+    <div class="no-results" id="no-results" style="display:none;">
+      <span class="no-results-icon">🔍</span>
+      <h3>No games found</h3>
+      <p>Try adjusting your filters or search query.</p>
+    </div>
+  </section>
+
+  <!-- Trending Section -->
+  <section id="trending" class="section section-alt">
+    <div class="section-header">
+      <h2 class="section-title"><span class="gradient-text">Trending</span> on Social Media</h2>
+      <p class="section-subtitle">Most talked about P2E games in the last 7 days</p>
+    </div>
+    <div class="trending-ticker" id="trending-ticker">
+      <!-- Ticker injected via JS -->
+    </div>
+    <div class="social-feeds" id="social-feeds">
+      <!-- Social feed cards injected via JS -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <h2 class="section-title">How <span class="gradient-text">P2E Radar</span> Works</h2>
+      <p class="section-subtitle">Our aggregation pipeline in 3 simple steps</p>
+    </div>
+    <div class="steps-grid" id="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-icon">📡</div>
+        <h3>Scan Social Media</h3>
+        <p>We continuously monitor X (Twitter), Reddit, Discord, Telegram, and other platforms for new play-to-earn game mentions and launches.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-icon">🔬</div>
+        <h3>Verify & Score</h3>
+        <p>Each game is evaluated for legitimacy, earning potential, and playable percentage. Only games with 75%–100% verified earn rates make the cut.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-icon">📊</div>
+        <h3>Summarize & Display</h3>
+        <p>Games are summarized with key info — name, crypto token, earn rate, platform availability — and displayed in a clean, scannable format.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">P2E<span class="logo-accent">Radar</span></span>
+        <p class="footer-tagline">Your lens into the best play-to-earn opportunities across Web2 & Web3.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#games">Browse Games</a>
+          <a href="#trending">Trending</a>
+          <a href="#about">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <h4>Sources</h4>
+          <a href="#">X (Twitter)</a>
+          <a href="#">Reddit</a>
+          <a href="#">Discord</a>
+          <a href="#">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 P2E Radar. All rights reserved. Not financial advice.</p>
+    </div>
+  </footer>
+
+  <!-- Game Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="game-modal">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+      <div class="modal-header" id="modal-header"></div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>
