@@ -1,6 +1,9 @@
 # Portable Git
 .git-portable/
 
+# Portable GH CLI
+.gh-portable/
+
 # Firebase configuration & temporary files
 .firebase/
 firebase-debug.log
