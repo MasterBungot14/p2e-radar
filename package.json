@@ -1,0 +1,14 @@
+{
+  "name": "p2e-radar",
+  "version": "1.0.0",
+  "description": "Play-to-Earn Game Aggregator Site",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx browser-sync start --server --files \"index.html, index.css, app.js\"",
+    "deploy": "npx firebase deploy"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^3.0.3"
+  }
+}
