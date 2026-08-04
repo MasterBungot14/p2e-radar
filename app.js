@@ -1,5 +1,5 @@
 /* =========================================================
-   P2E Radar — Application Logic
+   P2E Masters — Application Logic
    ========================================================= */
 
 // ── Game Data (curated from social media) ──
