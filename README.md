@@ -2,13 +2,13 @@
 
 > **Your ultimate hub for Play-to-Earn games — sourced directly from social media.**
 
-[![Firebase Hosting](https://img.shields.io/badge/Live-Firebase-orange?logo=firebase)](https://zodiac-sample.web.app)
+[![Firebase Hosting](https://img.shields.io/badge/Live-Firebase-orange?logo=firebase)](https://P2EMaster.web.app)
 [![GitHub](https://img.shields.io/badge/Repo-GitHub-black?logo=github)](https://github.com/MasterBungot14/p2e-radar)
 
 ---
 
 ## 🌐 Live Site
-**[https://zodiac-sample.web.app](https://zodiac-sample.web.app)**
+**[https://P2EMaster.web.app](https://P2EMaster.web.app)**
 
 ---
 
@@ -96,9 +96,9 @@ npm run deploy
 
 ## 🔗 Links
 
-- 🔥 **Live Site:** [https://zodiac-sample.web.app](https://zodiac-sample.web.app)
+- 🔥 **Live Site:** [https://p2emaster.web.app](https://p2emaster.web.app)
 - 📁 **GitHub Repo:** [https://github.com/MasterBungot14/p2e-radar](https://github.com/MasterBungot14/p2e-radar)
-- 📊 **Firebase Console:** [https://console.firebase.google.com/project/zodiac-sample](https://console.firebase.google.com/project/zodiac-sample)
+- 📊 **Firebase Console:** [https://console.firebase.google.com/project/p2emaster](https://console.firebase.google.com/project/p2emaster)
 
 ---
 
